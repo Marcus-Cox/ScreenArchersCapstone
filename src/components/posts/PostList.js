@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { PostPreview } from './PostPreview';
+import { getAllPosts, deletePost } from '/home/marcus/workspace/screenarchers/src/modules/PostsManager.js';
 import { useNavigate } from 'react-router-dom';
-import { Posts } from '/home/marcus/workspace/screenarchers/src/components/posts/Posts.js';
-import { getAllPosts, getPostById, deletePost } from '/home/marcus/workspace/screenarchers/src/modules/PostsManager.js';
+
 
 export const PostList = () => {
-    // The initial state is an empty array
+
     const [posts, setPosts] = useState([]);
   
     const navigate = useNavigate();
@@ -28,13 +29,13 @@ export const PostList = () => {
           <section className="section-content">
             <button type="button"
                 className="btn"
-                onClick={() => {navigate("/create")}}>
+                onClick={() => {navigate("/post/create")}}>
                 New Post
             </button>
           </section>
           <div className="container-cards">
             {posts.map(post =>
-              <Posts 
+              <PostPreview 
               key={post.id} 
               post={post}
               handleDeletePost={handleDeletePost} />

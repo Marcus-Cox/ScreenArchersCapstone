@@ -52,8 +52,14 @@ export const PostForm = () => {
 
 			<fieldset>
 				<div className="form-group">
-					<label htmlFor="name">Post Title:</label>
-					<input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Enter title here" value={post.title} />
+					<label htmlFor="title">Post Title:</label>
+					<input type="text" 
+					id="title" 
+					onChange={handleControlledInputChange} 
+					required autoFocus 
+					className="form-control" 
+					placeholder="Enter title here" 
+					value={post.title} />
 				</div>
 			</fieldset>
 
@@ -73,7 +79,7 @@ export const PostForm = () => {
 
             <fieldset>
 				<div className="form-group">
-					<label htmlFor="editingtools">URL:</label>
+					<label htmlFor="editingtools">Editing Tools:</label>
 					<input type="text" id="editingtools" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="What did you use to edit the ScreenShot?" value={post.editingtools} />
 				</div>
 			</fieldset>

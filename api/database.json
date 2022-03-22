@@ -36,5 +36,30 @@
       "id": 7
     }
   ],
-  "post": []
+  "posts": [
+    {
+      "userId": 7,
+      "title": "Lady Sith Lord",
+      "imageurl": "https://i.imgur.com/biND6kC.jpeg",
+      "capturetools": "In game screenshop button",
+      "editingtools": "No tools used",
+      "ismooded": "Mods",
+      "comments": "Just Finished the Sith Warrior Questline!",
+      "category": "Dramatic Character Pose. ",
+      "dateTime": "3/21/2022, 8:07:38 PM",
+      "id": 3
+    },
+    {
+      "userId": 7,
+      "title": "My Sith Inquisitor!",
+      "imageurl": "https://i.imgur.com/kKZbZCr.jpeg",
+      "capturetools": "Test",
+      "editingtools": "Test",
+      "ismooded": "Test",
+      "comments": "Test",
+      "category": "Test",
+      "dateTime": "3/22/2022, 1:11:52 AM",
+      "id": 4
+    }
+  ]
 }

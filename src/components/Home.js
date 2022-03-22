@@ -1,4 +1,5 @@
 import React from "react"
+import { PostPreview } from "./posts/PostPreview"
 export const Home = () => {
     const screenArcherUser = JSON.parse(sessionStorage.getItem('screenarcher_user'))
     return (
@@ -7,6 +8,10 @@ export const Home = () => {
             <small>Capture Your imagination.</small>
     
             <h3>{`Welcome, ${screenArcherUser.name}`} </h3>
+
+            <div>Lastest Content will go here</div>
+
+            
         </>
     )
 } 
