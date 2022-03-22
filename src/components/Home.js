@@ -1,6 +1,5 @@
 import React from "react"
-// import {UserManager} from "/home/marcus/workspace/screenarchers/src/modules/UserManager.js"
-
+import { PostPreview } from "./posts/PostPreview"
 export const Home = () => {
     const screenArcherUser = JSON.parse(sessionStorage.getItem('screenarcher_user'))
     return (
@@ -9,15 +8,10 @@ export const Home = () => {
             <small>Capture Your imagination.</small>
     
             <h3>{`Welcome, ${screenArcherUser.name}`} </h3>
+
+            <div>Lastest Content will go here</div>
+
+            
         </>
     )
 } 
-
-// export const WelcomeUser = ({ userName }) => {
-//     let users.name = userName
-//     return (
-//       <>
-//         <h3>Welcome, {userName} </h3>
-//       </>
-//     )
-//   }

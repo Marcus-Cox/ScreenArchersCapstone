@@ -3,6 +3,11 @@ import { Route, Routes, Navigate } from "react-router-dom"
 import { Login } from './auth/Login'
 import { Register } from './auth/Register'
 import { Home } from "./Home.js"
+// import { PostList } from "./posts/PostList"
+import { PostForm } from "./posts/PostForm"
+import { Posts } from "./posts/Posts"
+import { PostList } from "./posts/PostList"
+import { PostEditForm } from "./posts/PostEditForm"
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
     const PrivateRoute = ({ children }) => {
@@ -27,7 +32,29 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
                       <Home />
               </PrivateRoute>
           } />
-        </Routes>
+        <Route exact path="/posts" element={
+                <PrivateRoute>
+                 <PostList />
+                </PrivateRoute>} />
+        <Route exact path="/posts/:postId" 
+           element={
+            <PrivateRoute>
+                <Posts />
+            </PrivateRoute>} />
+
+        <Route path="/post/create" 
+           element={
+            <PrivateRoute>
+                <PostForm />
+            </PrivateRoute>} />
+
+        <Route path="/posts/:postId/edit" 
+            element={
+           <PrivateRoute>
+           <PostEditForm />
+          </PrivateRoute>} />
+        
+            </Routes>
       </>
     )
           }
