@@ -1,5 +1,5 @@
 import React from "react"
-import { PostPreview } from "./posts/PostPreview"
+import Comments from "./comments/Comments"
 export const Home = () => {
     const screenArcherUser = JSON.parse(sessionStorage.getItem('screenarcher_user'))
     return (
@@ -10,7 +10,7 @@ export const Home = () => {
             <h3>{`Welcome, ${screenArcherUser.name}`} </h3>
 
             <div>Lastest Content will go here</div>
-
+            <Comments/>
             
         </>
     )
