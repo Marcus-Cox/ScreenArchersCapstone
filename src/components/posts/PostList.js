@@ -26,13 +26,16 @@ export const PostList = () => {
 
       return(
         <>
-          <section className="section-content">
+          <section>
+            <div>
             <button type="button"
                 className="btn"
                 onClick={() => {navigate("/post/create")}}>
                 New Post
             </button>
+          </div>
           </section>
+
           <div className="container-cards">
             {posts.map(post =>
               <PostPreview 

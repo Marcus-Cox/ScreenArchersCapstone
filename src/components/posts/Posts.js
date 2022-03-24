@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
 import { getPostById, deletePost,} from "/home/marcus/workspace/screenarchers/src/modules/PostsManager.js";
-import "./Posts.css";
 export const Posts = () => {
     const [post, setPost] = useState({
+    name:"",
     title:"",
     imageurl:"",
     capturetools: "",
@@ -39,7 +39,7 @@ export const Posts = () => {
         <h1>Title: <span className="card-posttitle">
           {post.title}
         </span></h1>
-        <h2 className="post_username">Posted by: {post.userId}</h2>
+        <h2 className="post_username">Posted by: {post.user?.name}</h2>
         
         <div>Image:
         <img className="post-actual"src={post.imageurl} />
