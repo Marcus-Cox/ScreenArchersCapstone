@@ -6,44 +6,42 @@ import { useNavigate } from 'react-router-dom';
 
 export const PostList = () => {
 
-    const [posts, setPosts] = useState([]);
-  
-    const navigate = useNavigate();
-    const getPosts = () => {
-        return getAllPosts().then(postsFromAPI => {
-            setPosts(postsFromAPI)
-        });
-      };
+  const [posts, setPosts] = useState([]);
 
-      useEffect(() => {
-        getPosts();
-      }, []);
+  const navigate = useNavigate();
+  const getPosts = () => {
+    return getAllPosts().then(postsFromAPI => {
+      setPosts(postsFromAPI)
+    });
+  };
 
-      const handleDeletePost = id => {
-        deletePost(id)
-        .then(() => getAllPosts().then(setPosts));
-      };
+  useEffect(() => {
+    getPosts();
+  }, []);
 
-      return(
-        <>
-          <section>
-            <div>
-            <button type="button"
-                className="btn"
-                onClick={() => {navigate("/post/create")}}>
-                New Post
-            </button>
-          </div>
-          </section>
-
-          <div className="container-cards">
-            {posts.map(post =>
-              <PostPreview 
-              key={post.id} 
-              post={post}
-              handleDeletePost={handleDeletePost} />
-            )}
-          </div>
-        </>
-      );
-    };
+  const handleDeletePost = id => {
+    deletePost(id)
+      .then(() => getAllPosts().then(setPosts));
+  };
+  return (
+    <>
+      <section>
+        <div>
+          <button type="button"
+            className="btn"
+            onClick={() => { navigate("/post/create") }}>
+            New Post
+          </button>
+        </div>
+      </section>
+      <div className="container-cards">
+        {posts.map(post =>
+          <PostPreview
+            key={post.id}
+            post={post}
+            handleDeletePost={handleDeletePost} />
+        )}
+      </div>
+    </>
+  );
+};

@@ -1,38 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-import { getPostById, deletePost,} from "/home/marcus/workspace/screenarchers/src/modules/PostsManager.js";
+import { getPostById, deletePost, } from "/home/marcus/workspace/screenarchers/src/modules/PostsManager.js";
 export const Posts = () => {
-    const [post, setPost] = useState({
-    name:"",
-    title:"",
-    imageurl:"",
+  const [post, setPost] = useState({
+    name: "",
+    title: "",
+    imageurl: "",
     capturetools: "",
     editingtools: "",
     ismooded: "",
     comments: "",
     category: "",
-    dateTime: ""});
-    const [isLoading, setIsLoading] = useState(true);
+    dateTime: ""
+  });
+  const [isLoading, setIsLoading] = useState(true);
 
-    const { postId } = useParams();
-    const navigate = useNavigate();
+  const { postId } = useParams();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log("useEffect", postId)
-        getPostById(postId)
-          .then(post => {
-            setPost(post);
-            setIsLoading(false);
-          });
-      }, [postId]);
+  useEffect(() => {
+    console.log("useEffect", postId)
+    getPostById(postId)
+      .then(post => {
+        setPost(post);
+        setIsLoading(false);
+      });
+  }, [postId]);
 
-      const handleDelete = () => {
-        setIsLoading(true);
-        deletePost(postId).then(() =>
-          navigate("/posts")
-        );
-      };
-
+  const handleDelete = () => {
+    setIsLoading(true);
+    deletePost(postId).then(() =>
+      navigate("/posts")
+    );
+  }
   return (
     <div className="card">
       <div className="card-content">
@@ -40,9 +40,8 @@ export const Posts = () => {
           {post.title}
         </span></h1>
         <h2 className="post_username">Posted by: {post.user?.name}</h2>
-        
         <div>Image:
-        <img className="post-actual"src={post.imageurl} />
+          <img className="post-actual" src={post.imageurl} />
         </div>
         <p>Capturetools: {post.capturetools}</p>
         <p>Editingtools: {post.editingtools}</p>
