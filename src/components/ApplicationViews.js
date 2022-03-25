@@ -53,7 +53,6 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
            <PrivateRoute>
            <PostEditForm />
           </PrivateRoute>} />
-        
             </Routes>
       </>
     )

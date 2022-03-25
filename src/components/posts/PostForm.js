@@ -3,25 +3,25 @@ import { useNavigate } from 'react-router-dom';
 import { addPost } from '../../modules/PostsManager';
 
 export const PostForm = () => {
-//things to change later: 'ismodded' to a boolean , change catagory into a drop down
+	//things to change later: 'ismodded' to a boolean , change catagory into a drop down
 	const [post, setPost] = useState({
 		userId: 0,
-        title:"",
-        imageurl:"",
-        capturetools: "",
-        editingtools: "",
-        ismooded: "",
-        comments: "",
-        category: "",
-        dateTime: ""
+		title: "",
+		imageurl: "",
+		capturetools: "",
+		editingtools: "",
+		ismooded: "",
+		comments: "",
+		category: "",
+		dateTime: ""
 	});
 
-    const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
-    const handleControlledInputChange = (event) => {
-		
+	const handleControlledInputChange = (event) => {
+
 		const newPost = { ...post }
 
 		let selectedVal = event.target.value
@@ -33,84 +33,81 @@ export const PostForm = () => {
 		setPost(newPost)
 	};
 
-    const handleClickSavePost = (event) => {
-        event.preventDefault() 
-    
-        const user = JSON.parse(sessionStorage.getItem("screenarcher_user"))
-    
-        const newPost = { ...post }
-        newPost.userId = user.id
-            newPost.dateTime = new Date().toLocaleString();
-            addPost(newPost)
-            .then(() => navigate("/"))
-        }
-//things to change later: 'ismodded' to a boolean , change catagory into a drop down
+	const handleClickSavePost = (event) => {
+		event.preventDefault()
 
-    return (
+		const user = JSON.parse(sessionStorage.getItem("screenarcher_user"))
+
+		const newPost = { ...post }
+		newPost.userId = user.id
+		newPost.dateTime = new Date().toLocaleString();
+		addPost(newPost)
+			.then(() => navigate("/"))
+	}
+	return (
 		<form className="postForm">
 			<h2 className="postForm__title">New Post</h2>
 
 			<fieldset>
 				<div className="form-group">
 					<label htmlFor="title">Post Title:</label>
-					<input type="text" 
-					id="title" 
-					onChange={handleControlledInputChange} 
-					required autoFocus 
-					className="form-control" 
-					placeholder="Enter title here" 
-					value={post.title} />
+					<input type="text"
+						id="title"
+						onChange={handleControlledInputChange}
+						required autoFocus
+						className="form-control"
+						placeholder="Enter title here"
+						value={post.title} />
 				</div>
 			</fieldset>
 
-            <fieldset>
+			<fieldset>
 				<div className="form-group">
 					<label htmlFor="imageurl">Image Source:</label>
 					<input type="text" id="imageurl" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Enter Image URL here" value={post.imageurl} />
 				</div>
 			</fieldset>
 
-            <fieldset>
+			<fieldset>
 				<div className="form-group">
 					<label htmlFor="capturetools">Image Capture Tools:</label>
 					<input type="text" id="capturetools" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="How did you capture the Image?" value={post.capturetools} />
 				</div>
 			</fieldset>
 
-            <fieldset>
+			<fieldset>
 				<div className="form-group">
 					<label htmlFor="editingtools">Editing Tools:</label>
 					<input type="text" id="editingtools" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="What did you use to edit the ScreenShot?" value={post.editingtools} />
 				</div>
 			</fieldset>
 
-            <fieldset>
+			<fieldset>
 				<div className="form-group">
 					<label htmlFor="ismooded">Any Mods?:</label>
 					<input type="text" id="ismooded" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Use any Mods for the Screenshot?" value={post.ismooded} />
 				</div>
 			</fieldset>
 
-            <fieldset>
+			<fieldset>
 				<div className="form-group">
 					<label htmlFor="comments">Comments:</label>
 					<input type="text" id="comments" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Put your thoughts and commentary on your ScreenShot here!" value={post.comments} />
 				</div>
 			</fieldset>
 
-            <fieldset>
+			<fieldset>
 				<div className="form-group">
 					<label htmlFor="category">Category:</label>
 					<input type="text" id="category" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="What's the ~Vibe~ of this screenshot?" value={post.category} />
 				</div>
 			</fieldset>
 
-            <button className="btn btn-primary"
+			<button className="btn btn-primary"
 				onClick={handleClickSavePost}>
 				Save Post
-          </button>
+			</button>
 		</form>
 	)
 };
 
-            

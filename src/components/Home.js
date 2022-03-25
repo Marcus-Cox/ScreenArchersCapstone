@@ -11,7 +11,6 @@ export const Home = () => {
 
             <div>Lastest Content will go here</div>
             <Comments/>
-            
         </>
     )
 } 

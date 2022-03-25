@@ -124,9 +124,7 @@ export const PostEditForm = () => {
         id="category"
         value={post.category}
         />
-        
           </div>
-
           <div className="alignRight">
             <button
               type="button" disabled={isLoading}
