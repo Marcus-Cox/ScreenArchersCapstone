@@ -5,7 +5,7 @@ import "./Login.css"
 
 export const Register = () => {
 
-    const [registerUser, setRegisterUser] = useState({ firstName: "", lastName: "", email: "" })
+    const [registerUser, setRegisterUser] = useState({ userName: "", email: ""})
     const [conflictDialog, setConflictDialog] = useState(false)
 
     const navigate = useNavigate()
@@ -37,14 +37,14 @@ export const Register = () => {
                         },
                         body: JSON.stringify({
                             email: registerUser.email,
-                            name: `${registerUser.firstName} ${registerUser.lastName}`
+                            name: `${registerUser.userName}`,
                         })
                     })
                         .then(res => res.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                // The user id is saved under the key nutshell_user in session Storage. Change below if needed!
-                                sessionStorage.setItem("nutshell_user", createdUser.id)
+                                // The user id is saved under the key screenarchers_user in session Storage. Change below if needed!
+                                sessionStorage.setItem("screenarchers_user", createdUser.id)
                                 navigate("/")
                             }
                         })
@@ -67,8 +67,8 @@ export const Register = () => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> Username </label>
-                    <input type="text" name="firstName" id="firstName" className="form-control" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
+                    <label htmlFor="userName"> Username </label>
+                    <input type="text" name="userName" id="userName" className="form-control" placeholder="First name" required autoFocus value={registerUser.userName} onChange={handleInputChange} />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
