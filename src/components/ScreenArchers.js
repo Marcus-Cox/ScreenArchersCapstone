@@ -1,6 +1,9 @@
 import React,  {useState} from "react"
 import { ApplicationViews } from "./ApplicationViews"
-import { NavBar } from "./nav/NavBar"
+// import { NavBar } from "./nav/NavBar"
+import { ToolBar } from "./nav/ToolBar"
+// import { SideDrawer } from "./SideDrawer/SideDrawer"
+// import { Backdrop } from "./Backdrop/Backdrop"
 import "./ScreenArchers.css"
 
 export const ScreenArchers = () => {
@@ -18,12 +21,17 @@ export const ScreenArchers = () => {
 
   return (
     <>
-      <NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
+    <div style = {{height: '100%'}}>
+      <ToolBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
+      {/* <SideDrawer/>
+      <Backdrop/> */}
+      
       <ApplicationViews 
           setAuthUser={setAuthUser}
           isAuthenticated={isAuthenticated}
           setIsAuthenticated={setIsAuthenticated}
       />
+      </div>
     </>
   )
 }
