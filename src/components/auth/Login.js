@@ -46,7 +46,6 @@ export const Login = ({setAuthUser}) => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>ScreenArchers</h1>
                     <h3>Capture your imagination</h3>
                     <h2>Please sign in</h2>
                     <fieldset>
@@ -66,7 +65,7 @@ export const Login = ({setAuthUser}) => {
                     </fieldset>
                 </form>
             </section>
-            <section className="link--register">
+            <section className="register">
                 <Link to="/register">Register for an account</Link>
             </section>
         </main>

@@ -4,6 +4,7 @@ import { ApplicationViews } from "./ApplicationViews"
 import { ToolBar } from "./nav/ToolBar"
 // import { SideDrawer } from "./SideDrawer/SideDrawer"
 // import { Backdrop } from "./Backdrop/Backdrop"
+import {SideBar} from "./nav/SideBar"
 import "./ScreenArchers.css"
 
 export const ScreenArchers = () => {
@@ -22,7 +23,7 @@ export const ScreenArchers = () => {
   return (
     <>
     <div style = {{height: '100%'}}>
-      <ToolBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
+      <SideBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
       {/* <SideDrawer/>
       <Backdrop/> */}
       
