@@ -1,4 +1,5 @@
 import React from "react"
+import { PostPreview } from "./posts/PostPreview"
 // import Comments from "./comments/Comments"
 export const Home = () => {
     const screenArcherUser = JSON.parse(sessionStorage.getItem('screenarcher_user'))

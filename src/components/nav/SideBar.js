@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
-import { IconContext } from "react-icons";
 
 // import "bootstrap/dist/css/bootstrap.min.css"
 // import { DrawToggleButton } from "../SideDrawer/DrawToggleButton"
@@ -13,14 +12,14 @@ export const SideBar = (props) => {
     const showSidebar = () => setSidebar(!sidebar)
   return (
       <>
-      <IconContext.Provider>
       <div className="navbar">
       <Link to="#" className="menu-bars">
         <FaBars onClick={showSidebar}/>
       </Link>
+      <div className="navbar_logo">ScreenArchers</div>
       </div>
-      <nav className={sidebar ? 'nav-menu active' : 'navmenu'}>
-        <ul className="nav-menu-items">
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <ul className="nav-menu-items" onClick={showSidebar} >
             <li className='navbar-toggle'>
                 <Link to ='#' className="menu-bars">
                     <AiOutlineClose/>
@@ -36,10 +35,8 @@ export const SideBar = (props) => {
                     </li>
                 )
             })}
-      {/* <Link className="toolbar_logo" to="/">ScreenArchers</Link> */}
       </ul>
      </nav>
-     </IconContext.Provider>
      </>
   )
 }
